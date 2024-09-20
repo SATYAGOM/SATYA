@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+      
+      body {
+            background-color: #8b35b4;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        .question-container {
+            display: none;
+        }
+        .question {
+            margin: 30px;
+            font-size: x-large;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: x-large;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .options button:hover {
+            background-color: #0056b3;
+        }
+        .feedback {
+            display: none;
+            font-size: 1.75em;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .feedback.correct {
+            color: rgb(127, 186, 127);
+        }
+        .feedback.incorrect {
+            color: rgb(229, 139, 139);
+        }
+        #nextBtn, #submitBtn, #exitBtn {
+            display: none;
+            width: 100%;
+            font-size: 2em;
+            padding: 10px;
+		    background-color: blue;
+		    size: larger;
+		    color: yellow;
+            border: none;
+            margin-top: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #nextBtn {
+            background-color: blue;
+            color: yellow;
+        }
+        #nextBtn:hover {
+            background-color: #218838;
+        }
+        #submitBtn {
+            background-color: green;
+            color: white;
+        }
+        #submitBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #finalScore {
+            display: none;
+            font-size: 1.5em;
+            color: yellow;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #exitBtn {
+            background-color: red;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        
+        #exitBtn:hover {
+            background-color: #a00;
+        }
+        
+        
+        #message {
+            display: none;
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SATYA VIDEOS</h1>
+    <h1>Quiz – 2  -- Computer Science</h1>
+<head>
+	<meta charset=UTF-8”>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SATYA VIDEOS Quiz</title>
+	<style>
+	H1:nth-of-type(1) {
+		Color: yellow;
+	}
+	H1:nth-of-type(2) {
+		Color: Lime;
+	Font-family: ‘Arial’, sans-serif; 
+		Font-size: 2em;
+	}
+	</style>
+</head>
+    <!-- Question 1 -->
+    <div class="question-container" id="question1">
+        <div class="question">1. Which of the following is considered the brain of a computer?</div>
+        <div class="options">
+            <button onclick="checkAnswer(1, 'c', event)">a) RAM</button>
+            <button onclick="checkAnswer(1, 'c', event)">b) Hard Drive</button>
+            <button onclick="checkAnswer(1, 'c', event)">c) CPU</button>
+            <button onclick="checkAnswer(1, 'c', event)">d) Motherboard</button>
+        </div>
+        <div id="feedback1" class="feedback"></div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-container" id="question2">
+        <div class="question">2. What does 'phishing' refer to in cybersecurity?</div>
+        <div class="options">
+            <button onclick="checkAnswer(2, 'c', event)">a) A technique to catch hackers</button>
+            <button onclick="checkAnswer(2, 'c', event)">b) A method to bypass firewalls</button>
+            <button onclick="checkAnswer(2, 'c', event)">c) A way to trick users into divulging personal information</button>
+            <button onclick="checkAnswer(2, 'c', event)">d) A type of malware</button>
+        </div>
+        <div id="feedback2" class="feedback"></div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-container" id="question3">
+        <div class="question">3. Which of the following is a popular open-source operating system?</div>
+        <div class="options">
+            <button onclick="checkAnswer(3, 'c', event)">a) Windows</button>
+            <button onclick="checkAnswer(3, 'c', event)">b) macOS</button>
+            <button onclick="checkAnswer(3, 'c', event)">c) Linux</button>
+            <button onclick="checkAnswer(3, 'c', event)">d) DOS</button>
+        </div>
+        <div id="feedback3" class="feedback"></div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-container" id="question4">
+        <div class="question">4. In software development, what does 'API' stand for?</div>
+        <div class="options">
+            <button onclick="checkAnswer(4, 'a', event)">a) Application Programming Interface</button>
+            <button onclick="checkAnswer(4, 'a', event)">b) Advanced Programming Instructions</button>
+            <button onclick="checkAnswer(4, 'a', event)">c) Application Protocol Interface</button>
+            <button onclick="checkAnswer(4, 'a', event)">d) Automated Program Integration</button>
+        </div>
+        <div id="feedback4" class="feedback"></div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-container" id="question5">
+        <div class="question">5. What does HTTP stand for?</div>
+        <div class="options">
+            <button onclick="checkAnswer(5, 'a', event)">a) HyperText Transfer Protocol</button>
+            <button onclick="checkAnswer(5, 'a', event)">b) HyperText Transmission Protocol</button>
+            <button onclick="checkAnswer(5, 'a', event)">c) HyperText Translation Protocol</button>
+            <button onclick="checkAnswer(5, 'a', event)">d) HyperText Transaction Protocol</button>
+        </div>
+        <div id="feedback5" class="feedback"></div>
+    </div>
+
+<!-- Question 6 -->
+    <div class="question-container" id="question6">
+    <div class="question">6. Java was developed by</div>
+    <div class="options">
+        <button onclick="checkAnswer(6, 'c', event)">a) Microsoft</button>
+        <button onclick="checkAnswer(6, 'c', event)">b) Apple</button>
+        <button onclick="checkAnswer(6, 'c', event)">c) Sun Microsystems</button>
+        <button onclick="checkAnswer(6, 'c', event)">d) Google</button>
+    </div>
+    <div id="feedback6" class="feedback"></div>
+</div>
+
+<!-- Question 7 -->
+<div class="question-container" id="question7">
+    <div class="question">7. What is the purpose of the BIOS?</div>
+    <div class="options">
+        <button onclick="checkAnswer(7, 'c', event)">a)	To store data permanently</button>
+        <button onclick="checkAnswer(7, 'c', event)">b)	To control the flow of data between CPU and memory</button>
+        <button onclick="checkAnswer(7, 'c', event)">c)	To load the operating system into RAM during boot-up</button>
+        <button onclick="checkAnswer(7, 'c', event)">d)	To process graphical data</button>
+    </div>
+    <div id="feedback7" class="feedback"></div>
+</div>
+
+
+<!-- Question 8 -->
+<div class="question-container" id="question8">
+    <div class="question">8. What is the purpose of cache memory?</div>
+    <div class="options">
+        <button onclick="checkAnswer(8, 'a', event)">a)	To store frequently accessed data for quicker access</button>
+        <button onclick="checkAnswer(8, 'a', event)">b)	To provide permanent storage for the operating system</button>
+        <button onclick="checkAnswer(8, 'a', event)">c)	To display graphics on the screen</button>
+        <button onclick="checkAnswer(8, 'a', event)">d)	To control the flow of electricity in the computer</button>
+    </div>
+    <div id="feedback8" class="feedback"></div>
+</div>
+
+
+<!-- Question 9 -->
+<div class="question-container" id="question9">
+    <div class="question">9. Which of the following is a primary storage device?</div>
+    <div class="options">
+        <button onclick="checkAnswer(9, 'b', event)">a)	Hard Disk Drive</button>
+        <button onclick="checkAnswer(9, 'b', event)">b)	Random Access Memory</button>
+        <button onclick="checkAnswer(9, 'b', event)">c)	Flash Drive</button>
+        <button onclick="checkAnswer(9, 'b', event)">d)	Pen Drive</button>
+    </div>
+    <div id="feedback9" class="feedback"></div>
+</div>
+
+
+<!-- Question 10 -->
+<div class="question-container" id="question10">
+    <div class="question">10. Which of the following is an example of an input device?</div>
+    <div class="options">
+        <button onclick="checkAnswer(10, 'c', event)">a)	Printer</button>
+        <button onclick="checkAnswer(10, 'c', event)">b)	Monitor</button>
+        <button onclick="checkAnswer(10, 'c', event)">c)	Keyboard</button>
+        <button onclick="checkAnswer(10, 'c', event)">d)	Speaker</button>
+    </div>
+    <div id="feedback10" class="feedback"></div>
+</div>
+ 
+
+<!-- Question 11 -->
+<div class="question-container" id="question11">
+    <div class="question">11. Which of the following is not a secondary storage?</div>
+    <div class="options">
+        <button onclick="checkAnswer(11, 'd', event)">a)	CD-ROM/button>
+        <button onclick="checkAnswer(11, 'd', event)">b)	Cloud Storage</button>
+        <button onclick="checkAnswer(11, 'd', event)">c)	Hard Disk Drive</button>
+        <button onclick="checkAnswer(11, 'd', event)">d)	RAM</button>
+    </div>
+    <div id="feedback11" class="feedback"></div>
+</div>
+
+
+<!-- Question 12 -->
+<div class="question-container" id="question12">
+    <div class="question">12. What is the role of the GPU?</div>
+    <div class="options">
+        <button onclick="checkAnswer(12, 'a', event)">a)	To perform calculations for graphics rendering</button>
+        <button onclick="checkAnswer(12, 'a', event)">b)	To manage network connections</button>
+        <button onclick="checkAnswer(12, 'a', event)">c)	To control input and output devices</button>
+        <button onclick="checkAnswer(12, 'a', event)">d)	To store data temporarily</button>
+    </div>
+    <div id="feedback12" class="feedback"></div>
+</div>
+
+
+<!-- Question 13 -->
+<div class="question-container" id="question13">
+    <div class="question">13. Which is not a programming language?</div>
+    <div class="options">
+        <button onclick="checkAnswer(13, 'c', event)">a)	Python</button>
+        <button onclick="checkAnswer(13, 'c', event)">b)	Java</button>
+        <button onclick="checkAnswer(13, 'c', event)">c)	Assembly</button>
+        <button onclick="checkAnswer(13, 'c', event)">d)	C++</button>
+    </div>
+    <div id="feedback13" class="feedback"></div>
+</div>
+
+
+<!-- Question 14 -->
+<div class="question-container" id="question14">
+    <div class="question">14. What is the function of the operating system?</div>
+    <div class="options">
+        <button onclick="checkAnswer(14, 'a', event)">a)	To manage hardware resources and provide a user interface</button>
+        <button onclick="checkAnswer(14, 'a', event)">b)	To perform arithmetic and logical operations</button>
+        <button onclick="checkAnswer(14, 'a', event)">c)	To control the execution of the software programs</button>
+        <button onclick="checkAnswer(14, 'a', event)">d)	To store and retrieve data</button>
+    </div>
+    <div id="feedback14" class="feedback"></div>
+</div>
+
+
+<!-- Question 15 -->
+<div class="question-container" id="question15">
+    <div class="question">15. What is the purpose of the motherboard?</div>
+    <div class="options">
+        <button onclick="checkAnswer(15, 'b', event)">a)	To provide power to the computer components</button>
+        <button onclick="checkAnswer(15, 'b', event)">b)	To connect the internal components of the computer</button>
+        <button onclick="checkAnswer(15, 'b', event)">c)	To display images on the screen</button>
+        <button onclick="checkAnswer(15, 'b', event)">d)	To execute instructions</button>
+    </div>
+    <div id="feedback15" class="feedback"></div>
+</div>
+
+<!-- Question 16 -->
+<div class="question-container" id="question16">
+    <div class="question">16. Full form of DVI</div>
+    <div class="options">
+        <button onclick="checkAnswer(16, 'a', event)">a)	Digital Visual Interface</button>
+        <button onclick="checkAnswer(16, 'a', event)">b)	Direct Voice Interface</button>
+        <button onclick="checkAnswer(16, 'a', event)">c)	Digital Video Interface</button>
+        <button onclick="checkAnswer(16, 'a', event)">d)	Direct Video Interface</button>
+    </div>
+    <div id="feedback16" class="feedback"></div>
+</div>
+
+
+<!-- Question 17 -->
+<div class="question-container" id="question17">
+    <div class="question">17. Full form of USB</div>
+    <div class="options">
+        <button onclick="checkAnswer(17, 'd', event)">a)	Universal Seriatim Bus</button>
+        <button onclick="checkAnswer(17, 'd', event)">b)	Universal Series Bay</button>
+        <button onclick="checkAnswer(17, 'd', event)">c)	Universal Serial Bay</button>
+        <button onclick="checkAnswer(17, 'd', event)">d)	Universal Serial Bus</button>
+    </div>
+    <div id="feedback17" class="feedback"></div>
+</div>
+
+
+<!-- Question 18 -->
+<div class="question-container" id="question18">
+    <div class="question">18. Ethernet is used for</div>
+    <div class="options">
+        <button onclick="checkAnswer(18, 'b', event)">a)	Connecting Printer</button>
+        <button onclick="checkAnswer(18, 'b', event)">b)	Connecting Internet</button>
+        <button onclick="checkAnswer(18, 'b', event)">c)	Connecting External device</button>
+        <button onclick="checkAnswer(18, 'b', event)">d)	Connecting Mouse</button>
+    </div>
+    <div id="feedback18" class="feedback"></div>
+</div>
+
+
+<!-- Question 19 -->
+<div class="question-container" id="question19">
+    <div class="question">19. Full form of WLAN</div>
+    <div class="options">
+        <button onclick="checkAnswer(19, 'a', event)">a)	Wireless Local-Area Network</button>
+        <button onclick="checkAnswer(19, 'a', event)">b)	Wired Local-Area Network</button>
+        <button onclick="checkAnswer(19, 'a', event)">c)	Wired Line and Net</button>
+        <button onclick="checkAnswer(19, 'a', event)">d)	Wireless Line and Net</button>
+    </div>
+    <div id="feedback19" class="feedback"></div>
+</div>
+
+
+<!-- Question 20 -->
+<div class="question-container" id="question20">
+    <div class="question">20. Full form of XML</div>
+    <div class="options">
+        <button onclick="checkAnswer(20, 'c', event)">a)	Extensive Marking Language</button>
+        <button onclick="checkAnswer(20, 'c', event)">b)	Extension Marking Language</button>
+        <button onclick="checkAnswer(20, 'c', event)">c)	Extensible Markup Language</button>
+        <button onclick="checkAnswer(20, 'c', event)">d)	Extensive Markup Language</button>
+    </div>
+    <div id="feedback20" class="feedback"></div>
+</div>
+
+ 
+    <button id="nextBtn" onclick="showNextQuestion()">Next Question</button>
+    <button id="submitBtn" onclick="submitQuiz()">Get Score</button>
+
+    <div id="finalScore"></div>
+    <button id="exitBtn" onclick="exitQuiz()">EXIT</button>
+
+    <audio id="correctSound" src="correct.mp3"></audio>
+    <audio id="incorrectSound" src="incorrect.mp3"></audio>
+
+   
+
+    <script>
+        let currentQuestion = 1;
+        let score = 0;
+        const totalQuestions = 20;
+
+        // Show the first question when the page loads
+        document.getElementById('question1').style.display = 'block';
+
+        // Function to check the answer and provide feedback
+        function checkAnswer(questionNumber, correctOption, event) {
+            const feedbackDiv = document.getElementById(`feedback${questionNumber}`);
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            const exitBtn = document.getElementById('exitBtn');
+            const correctSound = document.getElementById('correctSound');
+            const incorrectSound = document.getElementById('incorrectSound');
+            const buttons = document.querySelectorAll(`#question${questionNumber} .options button`);
+
+            // Disable all buttons for the current question
+            buttons.forEach(button => button.disabled = true);
+
+            const userAnswer = event.target.textContent.trim().charAt(0).toLowerCase(); // Get the option letter
+
+            if (userAnswer === correctOption) {
+                feedbackDiv.innerHTML = '✅ Correct';
+                feedbackDiv.className = 'feedback correct';
+                score++;
+                correctSound.play();
+            } else {
+                feedbackDiv.innerHTML = '❌ Wrong';
+                feedbackDiv.className = 'feedback incorrect';
+                incorrectSound.play();
+            }
+
+            feedbackDiv.style.display = 'block';
+
+            // Show or hide buttons based on the current question
+            if (currentQuestion === totalQuestions) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+                exitBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+                exitBtn.style.display = 'none';
+            }
+        }
+
+        // Function to show the next question
+        function showNextQuestion() {
+            document.getElementById(`question${currentQuestion}`).style.display = 'none';
+            currentQuestion++;
+            document.getElementById(`question${currentQuestion}`).style.display = 'block';
+            document.getElementById('nextBtn').style.display = 'none';
+        }
+
+        // Function to submit the quiz
+        function submitQuiz() {
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('finalScore').innerHTML = `Your final score is ${score} out of ${totalQuestions}`;
+            document.getElementById('finalScore').style.display = 'block';
+            document.getElementById('exitBtn').style.display = 'block'; // Show Exit button after score
+        }
+            
+        
+        
+        // Function to exit the quiz
+        function exitQuiz() {
+            
+            document.getElementById('exitBtn').style.display = 'block';
+            window.close(); // Close the current window
+        }
+    </script>
+</body>
+</html>
